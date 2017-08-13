@@ -1,26 +1,27 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
 // create store
 import { createStore, applyMiddleware } from 'redux';
-import reducer from './reducers';
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+import ReduxPromise from 'redux-promise';
+import reducers from './reducers';
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
-// change this component to get start
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>React - Redux Project</h1>
-      </div>
-    )
-  }
-}
+import IndexTasks from './components/index-tasks';
+import ShowTask from './components/show-task';
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducer)}>
-    <App/>
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route path="/tasks/:id" component={ShowTask} ></Route>
+          <Route path="/" component={IndexTasks} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )

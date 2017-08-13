@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
+import tasks from './reducer-tasks';
 
 const rootReducer = combineReducers({
-  'hello' : 'hello world' // change this with your reducer
+  tasks:tasks
 });
 
 export default rootReducer;
