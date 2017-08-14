@@ -19,3 +19,14 @@ export function fetchTask(id){
     payload:req
   }
 }
+
+export function createTask(value,callback){
+        console.log("yes");
+
+  const req = axios.post(`${ROOT_URL}/tasks`,value)
+    .then(() => callback());
+  return{
+    type:"postNew",
+    payload:req
+  }
+}

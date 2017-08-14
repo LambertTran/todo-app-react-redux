@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import {browserHistory,BrowserRouter,Route,Switch} from 'react-router-dom';
 
 // create store
 import { createStore, applyMiddleware } from 'redux';
@@ -11,12 +11,14 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 import IndexTasks from './components/index-tasks';
 import ShowTask from './components/show-task';
+import NewTask from './components/new-task';
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
         <Switch>
+          <Route path="/tasks/new" component={NewTask} ></Route>
           <Route path="/tasks/:id" component={ShowTask} ></Route>
           <Route path="/" component={IndexTasks} />
         </Switch>

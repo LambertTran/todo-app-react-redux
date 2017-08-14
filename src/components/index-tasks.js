@@ -12,15 +12,17 @@ class IndexTasks extends Component{
   }
 
   renderTasks(){
-    return this.props.tasks.map((task) => 
-      <li 
-        className="list-group-item"
-        key={task._id}>
-        <Link to={`/tasks/${task._id}`}>
-          {task.title}
-        </Link>
-      </li>
-    );
+    return _.map(this.props.tasks, (task) => {
+      return (
+        <li 
+          className="list-group-item"
+          key={task._id}>
+          <Link to={`/tasks/${task._id}`}>
+            {task.title}
+          </Link>
+        </li>
+      )
+    });
   }
 
   render() {
@@ -30,6 +32,9 @@ class IndexTasks extends Component{
         <ul className="list-group">
         {this.renderTasks()}
         </ul>
+        <Link to="/tasks/new" className="btn btn-primary">
+          New Task
+        </Link>
       </div>
     );
   }
