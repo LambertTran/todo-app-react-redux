@@ -2,12 +2,12 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux'
 import {Field,reduxForm} from 'redux-form';
 
-import {createTask} from '../actions';
+import {userLogin} from '../actions';
 
-class NewTask extends Component{
-
+class UserLogin extends Component{
+  
   onSubmit(value){
-    this.props.createTask(value, () =>{
+    this.props.userLogin(value, () =>{
       this.props.history.push('/tasks');  // go back to homepage
     });
   }
@@ -17,7 +17,8 @@ class NewTask extends Component{
     return (
       <div>
         <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field label="Title" name="title" component="input"/>
+          <Field label="Title" name="email" component="input"/>
+          <Field label="Title" name="password" component="input"/>
           <button type="submit" className="btn btn-success">Save</button>
         </form>
       </div>
@@ -26,5 +27,5 @@ class NewTask extends Component{
 }
 
 export default reduxForm({
-  form:'NewTask'
-})(connect(null,{createTask})(NewTask));
+  form:'UserLogin'
+})(connect(null,{userLogin})(UserLogin));

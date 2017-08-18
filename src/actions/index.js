@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-const ROOT_URL = "https://server-todo-app.herokuapp.com/api";
+// const ROOT_URL = "https://server-todo-app.herokuapp.com/api";
+const ROOT_URL = "http://localhost:8080/api";
 
 const FETCH_TASKS = 'fetch_tasks';
 
 export function fetchAllTasks(){
-  const req = axios.get(`${ROOT_URL}/tasks`);
+  const req = axios.get(`${ROOT_URL}/tasks`,{header:'x-auth'});
   return{
     type:"fetchAll",
     payload:req
@@ -13,7 +14,7 @@ export function fetchAllTasks(){
 }
 
 export function fetchTask(id){
-  const req = axios.get(`${ROOT_URL}/tasks&id=${id}`);
+  const req = axios.get(`${ROOT_URL}/tasks&id=${id}`,{header:'x-auth'});
   return{
     type:"fetchOne",
     payload:req
@@ -21,12 +22,38 @@ export function fetchTask(id){
 }
 
 export function createTask(value,callback){
-        console.log("yes");
 
-  const req = axios.post(`${ROOT_URL}/tasks`,value)
+  const req = axios.post(`${ROOT_URL}/tasks`,value,{header:'x-auth'})
     .then(() => callback());
   return{
     type:"postNew",
     payload:req
   }
 }
+
+
+export function newUser(value,callback){
+  const req = axios.post(`${ROOT_URL}/users`,value)
+    .then(() => callback());
+  return{
+    type:"NEW_USER",
+    payload:req
+  }
+}
+
+
+export function userLogin(value,callback){
+  const req = axios.post(`${ROOT_URL}/users/login`,value)
+    .then((res) => {
+
+      //set global header
+      axios.defaults.headers.common['x-auth'] = res.headers['x-auth'];
+      callback()
+    });
+  
+  return{
+    type:"NEW_USER",
+    payload:req
+  }
+}
+
