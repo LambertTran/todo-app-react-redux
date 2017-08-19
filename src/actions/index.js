@@ -3,7 +3,6 @@ import axios from 'axios';
 const ROOT_URL = "https://server-todo-app.herokuapp.com/api";
 // const ROOT_URL = "http://localhost:8080/api";
 
-const FETCH_TASKS = 'fetch_tasks';
 
 export function fetchAllTasks(){
   const req = axios.get(`${ROOT_URL}/tasks`,{header:'x-auth'});

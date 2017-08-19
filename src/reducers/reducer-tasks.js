@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import {fetchAllTasks} from '../actions';
-import {fetchTask} from '../actions';
+// import {fetchAllTasks} from '../actions';
+// import {fetchTask} from '../actions';
 
 export default function(state=[],action){
   switch (action.type){
