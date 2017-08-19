@@ -4,12 +4,16 @@ import {Link} from 'react-router-dom';
 class WellCome extends Component{
   render() {
     return (
-      <div>
+      <div className="wellcome-cont">
         <h1>Wellcome</h1>
-        <Link to='/users/new' 
-          className="btn btn-primary">Create New User</Link>
-        <Link to='/users/login' 
-          className="btn btn-primary">Login</Link>
+        <div className="btnProps">
+          <Link to='/users/login' 
+            className="btn btn-primary btn-lg">Login</Link>
+        </div>
+        <div className="btnProps">
+          <Link to='/users/new' 
+            className="btn btn-primary btn-lg">Create New Account</Link>
+        </div>
       </div>
     );
   }
