@@ -1,3 +1,8 @@
+/*===========================================================
+
+                          Packages
+
+/*===========================================================*/
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
 import {Field,reduxForm} from 'redux-form';
@@ -5,16 +10,24 @@ import {Link} from 'react-router-dom';
 
 import {newUser} from '../actions';
 
+
+
+/*===========================================================
+
+                          Body
+
+/*===========================================================*/
+
 class NewUser extends Component{
 
-  // Create new user when submitted new form
+  /** Create new user when submitted new form */
   onSubmit(value){
     this.props.newUser(value, () =>{
       this.props.history.push('/tasks');  // go tasks page
     });
   }
 
-  //render components for particular field
+  /** Render components for particular field */
   renderField(field){
     return(
       <div className="form-group has-danger">

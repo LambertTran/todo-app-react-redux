@@ -1,9 +1,24 @@
+/*===========================================================
+
+                          Packages
+
+/*===========================================================*/
+
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
 import {Field,reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
+/** Function handles creating new task from action */
 import {createTask} from '../actions';
+
+
+
+/*===========================================================
+
+                          Body
+
+/*===========================================================*/
 
 class NewTask extends Component{
 
@@ -12,6 +27,7 @@ class NewTask extends Component{
       this.props.history.push('/tasks');  // go back to homepage
     });
   }
+
 
   renderField(field){
     return(
@@ -24,6 +40,7 @@ class NewTask extends Component{
       </div>
     )
   }
+
 
   render() {
     const {handleSubmit} = this.props;

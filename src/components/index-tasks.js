@@ -1,10 +1,24 @@
+/*===========================================================
+
+                          Packages
+
+/*===========================================================*/
+
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import _ from 'lodash';
 
-//actions
+// import fetch function from actions
 import {fetchAllTasks} from '../actions';
+
+
+
+/*===========================================================
+
+                          Body
+
+/*===========================================================*/
 
 class IndexTasks extends Component{
 
@@ -46,6 +60,7 @@ class IndexTasks extends Component{
   }
 }
 
+/** connect map state in store to props in component */
 function mapStateToProps(state){
   return{
     tasks:state.tasks

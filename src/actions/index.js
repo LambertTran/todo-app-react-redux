@@ -1,9 +1,17 @@
 import axios from 'axios';
 
+/** api server for todo-app */
 const ROOT_URL = "https://server-todo-app.herokuapp.com/api";
-// const ROOT_URL = "http://localhost:8080/api";
 
 
+
+/*===========================================================
+
+                          Tasks
+
+/*===========================================================*/
+
+/** Fetch all tasks from user database */
 export function fetchAllTasks(){
   const req = axios.get(`${ROOT_URL}/tasks`,{header:'x-auth'});
   return{
@@ -12,6 +20,7 @@ export function fetchAllTasks(){
   }
 }
 
+/** Fetch single task from user database with _id */
 export function fetchTask(id){
   const req = axios.get(`${ROOT_URL}/tasks&id=${id}`,{header:'x-auth'});
   return{
@@ -20,8 +29,9 @@ export function fetchTask(id){
   }
 }
 
-export function createTask(value,callback){
 
+/** Create new task */
+export function createTask(value,callback){
   const req = axios.post(`${ROOT_URL}/tasks`,value,{header:'x-auth'})
     .then(() => callback());
   return{
@@ -31,9 +41,20 @@ export function createTask(value,callback){
 }
 
 
+
+/*===========================================================
+
+                          Users
+
+/*===========================================================*/
+
 export function newUser(value,callback){
   const req = axios.post(`${ROOT_URL}/users`,value)
-    .then(() => callback());
+    .then((res) => {
+      //set global header = response header returning from server
+      axios.defaults.headers.common['x-auth'] = res.headers['x-auth'];
+      callback());
+    }
   return{
     type:"NEW_USER",
     payload:req
@@ -44,12 +65,10 @@ export function newUser(value,callback){
 export function userLogin(value,callback){
   const req = axios.post(`${ROOT_URL}/users/login`,value)
     .then((res) => {
-
-      //set global header
+      //set global header = response header returning from server
       axios.defaults.headers.common['x-auth'] = res.headers['x-auth'];
       callback()
     });
-  
   return{
     type:"NEW_USER",
     payload:req
