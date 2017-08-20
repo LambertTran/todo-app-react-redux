@@ -53,8 +53,8 @@ export function newUser(value,callback){
     .then((res) => {
       //set global header = response header returning from server
       axios.defaults.headers.common['x-auth'] = res.headers['x-auth'];
-      callback());
-    }
+      callback();
+    })
   return{
     type:"NEW_USER",
     payload:req

@@ -18,9 +18,8 @@ class WellCome extends Component{
   render() {
     return (
       <div>
-        <h1>Todo App</h1>
         <div className="main-box">
-          <h1>Welcome</h1>
+          <h1>Welcome to TodoApp</h1>
           <div className="btnProps">
             <Link to='/users/login' 
               className="btn btn-primary btn-lg">Login</Link>
