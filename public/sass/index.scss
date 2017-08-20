@@ -1,9 +1,12 @@
 $main-background: #73C6B6 ;
 $cont-color: #5DADE2;
 $margin-div: 50px;
+$tasks-bg-color:#21618C; 
+$task-item-bg-color:#A9CCE3; 
 
 @mixin boxProps {
   border-radius:20px;
+  padding: 20px 20px 20px 20px;
 }
 
 @mixin centerProps{
@@ -23,9 +26,10 @@ $margin-div: 50px;
 
 
 body{
-  background-color: darken($main-background,10%);}
+  background-color: darken($main-background,10%);
+}
 
-.wellcome-cont{
+.main-box{
   @include centerProps;
   @include boxProps;
   height: 60%;
@@ -41,4 +45,64 @@ body{
 
 .btnProps{
   margin-bottom: $margin-div;
+}
+
+.inside-box{
+  @include centerProps;
+  height: 50%;
+  width: 70%;
+}
+
+.btn{
+  margin-right:10px;
+  z-index:10;
+}
+
+.tasks-container{
+  @include centerProps;
+  @include boxProps;
+  width:90%;
+  background-color:$tasks-bg-color;
+    h1{
+      color:white;
+      margin:10px 10px 10px 10x;
+    }
+}
+
+.row1{
+  height:10%;
+  width:100%;
+}
+
+.row2{
+  width:100%;
+}
+
+.task-item{
+  @include boxProps;
+  height:100px;
+  width:200px;
+  background-color:$task-item-bg-color;
+  margin: 0 auto;
+  margin-bottom:20px;
+}
+
+@media (max-width:450px){
+  .main-box{
+    height:90%;
+    width:90%;
+  }
+  .row1{
+    height:20%;
+  }
+  .task-item{
+    width:100%;
+  }
+}
+
+@media (min-width:460px) and (max-width:1024px) {
+  .main-box{
+    height:60%;
+    width:50%;
+  }
 }

@@ -24,9 +24,9 @@ class ShowTask extends Component{
   render() {
     const task = this.props.task;
     return (
-      <div>
+      <div className="inside-box">
         {this.renderSingleTask(task)}
-        <Link className="btn btn-primary" to="/">Back</Link>
+        <Link className="btn btn-primary btn-lg" to="/tasks">Back</Link>
       </div>
     );
   }

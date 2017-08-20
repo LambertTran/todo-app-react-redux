@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 class WellCome extends Component{
   render() {
     return (
-      <div className="wellcome-cont">
+      <div className="main-box">
         <h1>Wellcome</h1>
         <div className="btnProps">
           <Link to='/users/login' 
