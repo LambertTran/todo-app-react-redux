@@ -87,6 +87,14 @@ body{
   margin-bottom:20px;
 }
 
+.show-task{
+  @include boxProps;
+  height:100vh;
+  width: 50%;
+  margin: 0 auto;
+  background-color:$task-item-bg-color;
+}
+
 @media (max-width:450px){
   .main-box{
     height:90%;

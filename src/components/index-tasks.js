@@ -31,12 +31,13 @@ class IndexTasks extends Component{
   renderTasks(){
     return _.map(this.props.tasks, (task) => {
       return (
-        <div className="col-md-3">
-        <Link to={`/tasks/${task._id}`}>
-          <div className="task-item" key={task._id}>
-            <h3>{task.title}</h3>
-          </div>
-        </Link>
+        <div key={task._id} className="col-md-3">
+          <Link to={`/tasks/${task._id}`}>
+            <div className="task-item" key={task._id}>
+              <h3>{task.title}</h3>
+              <h4>Completion: {task.complete.toString()}</h4>
+            </div>
+          </Link>
         </div>
       )
     });

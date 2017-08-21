@@ -67,6 +67,14 @@ body {
   margin: 0 auto;
   margin-bottom: 20px; }
 
+.show-task {
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  height: 100vh;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #A9CCE3; }
+
 @media (max-width: 450px) {
   .main-box {
     height: 90%;

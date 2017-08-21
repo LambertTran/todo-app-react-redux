@@ -12,7 +12,7 @@ import NewTask from './components/new-task';
 //user
 import NewUser from './components/new-user';
 import UserLogin from './components/user-login';
-import WellCome from './components/welcome';
+import WelCome from './components/welcome';
 
 
 // create store
@@ -32,7 +32,7 @@ ReactDOM.render(
           <Route path="/tasks" component={IndexTasks} />
           <Route path="/users/new" component={NewUser} />
           <Route path="/users/login" component={UserLogin} />
-          <Route path="/" component={WellCome} />
+          <Route path="/" component={WelCome} />
         </Switch>
       </div>
     </BrowserRouter>

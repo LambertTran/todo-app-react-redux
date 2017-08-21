@@ -3,13 +3,14 @@
                           Packages
 
 /*===========================================================*/
+
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
-import {Field,reduxForm} from 'redux-form';
+import {reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
 import {newUser} from '../actions';
-
+import FieldForm from './field-form';
 
 
 /*===========================================================
@@ -27,19 +28,6 @@ class NewUser extends Component{
     });
   }
 
-  /** Render components for particular field */
-  renderField(field){
-    return(
-      <div className="form-group has-danger">
-        <label htmlFor="title">{field.label}</label>
-        <input 
-          type="text" 
-          className="form-control"
-          {...field.input}/>
-      </div>
-    )
-  }
-
 
   render() {
     const {handleSubmit} = this.props;
@@ -50,8 +38,8 @@ class NewUser extends Component{
           <form 
             className="form-horizontal" 
             onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Field label="Email" name="email" component={this.renderField}/>
-            <Field label="Password" name="password" component={this.renderField}/>
+            <FieldForm name="email" type="text"/>
+            <FieldForm name="password" type="password"/>
             <button type="submit" className="btn btn-primary btn-lg">Create</button>
             <Link to="/" className="btn btn-primary btn-lg">Cancel</Link>
           </form>

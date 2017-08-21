@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom';
 
 /*===========================================================*/
 
-class WellCome extends Component{
+class WelCome extends Component{
   render() {
     return (
       <div>
@@ -34,4 +34,4 @@ class WellCome extends Component{
   }
 } 
 
-export default WellCome;
+export default WelCome;
