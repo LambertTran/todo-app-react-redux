@@ -31,13 +31,18 @@ class IndexTasks extends Component{
   renderTasks(){
     return _.map(this.props.tasks, (task) => {
       return (
-        <div key={task._id} className="col-md-3">
-          <Link to={`/tasks/${task._id}`}>
-            <div className="task-item" key={task._id}>
-              <h3>{task.title}</h3>
-              <h4>Completion: {task.complete.toString()}</h4>
-            </div>
-          </Link>
+        <div className="task-item" key={task._id}>
+          <div className="detail">
+            <Link to={`/tasks/${task._id}`}>
+              <div key={task._id}>
+                <h3>{task.title}</h3>
+                <h4>Completion: {task.complete.toString()}</h4>
+              </div>
+            </Link>
+          </div>
+          <div className="option">
+            <button className="btn btn-danger btn-lg">Delete</button>
+          </div>
         </div>
       )
     });
@@ -47,14 +52,16 @@ class IndexTasks extends Component{
     return (
       <div className="tasks-container">
         <div className="row1">
-          <Link to="/users/login" className="btn btn-primary btn-lg pull-right"> Log Out </Link>
-          <Link to="/tasks/new" className="btn btn-primary btn-lg pull-right"> New Task </Link>
-          <h1>Tasks: </h1>
+          <div className="btn-opt">
+            <Link to="/users/login" className="btn btn-primary btn-lg pull-right"> Log Out </Link>
+            <Link to="/tasks/new" className="btn btn-primary btn-lg pull-right"> New Task </Link>
+          </div>
+          <div className="title">
+            <h1>Tasks: </h1>
+          </div>
         </div>
         <div className="row2">
-          <div className="row">
             {this.renderTasks()}
-          </div>
         </div>
       </div>
     );

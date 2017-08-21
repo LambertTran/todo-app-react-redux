@@ -1,12 +1,11 @@
-$main-background: #73C6B6 ;
-$cont-color: #5DADE2;
+$main-bg: #73C6B6 ;
+$login-box-bg: #5DADE2;
 $margin-div: 50px;
-$tasks-bg-color:#21618C; 
-$task-item-bg-color:#A9CCE3; 
+$tasks-bg:  #008080; 
+$task-item-bg:#CB4335; 
 
 @mixin boxProps {
   border-radius:20px;
-  padding: 20px 20px 20px 20px;
 }
 
 @mixin centerProps{
@@ -18,15 +17,17 @@ $task-item-bg-color:#A9CCE3;
   right:0;
 }
 
-@mixin columnProps{
-  display:flex;
-  flex-direction: center;
-  padding-top:20px;
+@mixin small-item{
+  float:left;
+  z-index:10;
+  height:100px;
+  width:31%;
+  margin: 10px 10px 10px 10px;
 }
 
 
 body{
-  background-color: darken($main-background,10%);
+  background-color: darken($main-bg,10%);
 }
 
 .main-box{
@@ -35,7 +36,7 @@ body{
   height: 60%;
   width: 30%;
   text-align: center;
-  background-color: darken($cont-color, 30%);
+  background-color: darken($login-box-bg, 30%);
   h1{
     margin-top: $margin-div;
     color:white;
@@ -59,32 +60,63 @@ body{
 }
 
 .tasks-container{
-  @include centerProps;
+  background-color: $tasks-bg;
+  padding: 10px 10px 10px 10px;
+  width:70%;
+  height:100vh;
+  margin:0 auto;
   @include boxProps;
-  width:90%;
-  background-color:$tasks-bg-color;
-    h1{
+  h1{
       color:white;
       margin:10px 10px 10px 10x;
     }
+  a {
+    color:black;
+  }
 }
 
 .row1{
-  height:10%;
+  height:15%;
   width:100%;
+  .btn-opt{
+    margin-top:10px;
+    height: 50%;
+    width:100%;
+  }
+  .title{
+    height:50%;
+    width:100%;
+  }
 }
 
 .row2{
   width:100%;
+  text-align:center;
 }
 
 .task-item{
   @include boxProps;
-  height:100px;
-  width:200px;
-  background-color:$task-item-bg-color;
-  margin: 0 auto;
-  margin-bottom:20px;
+  @include small-item;
+  padding:10px;
+  background-color:$task-item-bg;
+
+  h3{
+    margin-top:10px;
+  }
+
+  .detail{
+    float:left;
+  }
+  .option{
+    text-align:center;
+    width:30%;
+    float:right;
+  }
+  &:hover{
+    -moz-box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+  }
 }
 
 .show-task{
@@ -92,7 +124,7 @@ body{
   height:100vh;
   width: 50%;
   margin: 0 auto;
-  background-color:$task-item-bg-color;
+  background-color:$task-item-bg;
 }
 
 @media (max-width:450px){
@@ -100,11 +132,21 @@ body{
     height:90%;
     width:90%;
   }
+  .tasks-container{
+    width:95%;
+  }
   .row1{
     height:20%;
   }
   .task-item{
     width:100%;
+  }
+  .task-item{
+    width:95%;
+    margin: 5px 5px 5px 5px;
+  }
+  .row1{
+    height:20%;
   }
 }
 
