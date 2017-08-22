@@ -20,6 +20,7 @@ export function fetchAllTasks(){
   }
 }
 
+
 /** Fetch single task from user database with _id */
 export function fetchTask(id){
   const req = axios.get(`${ROOT_URL}/tasks&id=${id}`,{header:'x-auth'});
@@ -35,11 +36,20 @@ export function createTask(value,callback){
   const req = axios.post(`${ROOT_URL}/tasks`,value,{header:'x-auth'})
     .then(() => callback());
   return{
-    type:"postNew",
+    type:"addTask",
     payload:req
   }
 }
 
+
+/** Delete task */
+export function deleteTask(id){
+  const req = axios.delete(`${ROOT_URL}/tasks/${id}`,id,{header:'x-auth'});
+  return {
+    type:"deleteOne",
+    payload:req
+  }
+}
 
 
 /*===========================================================

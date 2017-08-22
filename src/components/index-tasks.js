@@ -11,7 +11,7 @@ import _ from 'lodash';
 
 // import fetch function from actions
 import {fetchAllTasks} from '../actions';
-
+import {deleteTask} from '../actions';
 
 
 /*===========================================================
@@ -25,6 +25,11 @@ class IndexTasks extends Component{
   // after components mount, fetch all data
   componentDidMount(){
     this.props.fetchAllTasks();
+  }
+
+
+  handleDelete(id){
+    this.props.deleteTask(id);
   }
 
   // render all the tasks in a list
@@ -41,7 +46,9 @@ class IndexTasks extends Component{
             </Link>
           </div>
           <div className="option">
-            <button className="btn btn-danger btn-lg">Delete</button>
+            <button 
+              onClick={(event) =>this.handleDelete(task._id)} 
+              className="btn btn-danger btn-lg">Delete</button>
           </div>
         </div>
       )
@@ -75,4 +82,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps,{fetchAllTasks})(IndexTasks);
+export default connect(mapStateToProps,{fetchAllTasks,deleteTask})(IndexTasks);
