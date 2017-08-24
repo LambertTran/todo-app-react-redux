@@ -20,7 +20,7 @@ $task-item-bg:#CB4335;
 @mixin small-item{
   float:left;
   z-index:10;
-  height:100px;
+  height:120px;
   width:31%;
   margin: 10px 10px 10px 10px;
 }
@@ -111,6 +111,10 @@ body{
     text-align:center;
     width:30%;
     float:right;
+
+    .btn{
+      margin-bottom:5px;
+    }
   }
   &:hover{
     -moz-box-shadow: 0 0 10px #ccc;

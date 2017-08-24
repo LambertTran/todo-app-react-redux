@@ -1,20 +1,22 @@
 import _ from 'lodash';
 
-// import {fetchAllTasks} from '../actions';
-// import {fetchTask} from '../actions';
-
 export default function(state={},action){
   switch (action.type){
+    
+    /** Fetch all tasks */
     case "fetchAll":
       return _.mapKeys(action.payload.data,"_id");
-
-    // case "addTask":
-    //   console.log(action.payload);
-    //   return {...state,[action.payload.data._id]:action.payload.data}
-
+  
+    /** Delete a single task*/
     case "deleteOne":
       const _id= action.payload.data._id;
-      return _.omit(state,_id);
+      return _.omit(state,_id); //delete from store
+
+    /** Update a single task */
+    case "updateOne":
+      const id= (action.payload.data._id);
+      // add to the store
+      return {...state,[id]:action.payload.data}
 
     default:
       return state;

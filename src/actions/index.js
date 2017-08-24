@@ -52,6 +52,16 @@ export function deleteTask(id){
 }
 
 
+/** Update task */
+export function updateTask(id){
+  const req = axios.put(`${ROOT_URL}/tasks/${id}`,id,{header:'x-auth'});
+  return {
+    type:"updateOne",
+    payload:req
+  }
+}
+
+
 /*===========================================================
 
                           Users

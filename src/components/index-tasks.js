@@ -1,9 +1,6 @@
-/*===========================================================
-
-                          Packages
-
-/*===========================================================*/
-
+/*==========================================
+                    Package
+/*==========================================*/
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
@@ -12,13 +9,12 @@ import _ from 'lodash';
 // import fetch function from actions
 import {fetchAllTasks} from '../actions';
 import {deleteTask} from '../actions';
+import {updateTask} from '../actions';
 
 
-/*===========================================================
-
-                          Body
-
-/*===========================================================*/
+/*==========================================
+                    Body
+/*==========================================*/
 
 class IndexTasks extends Component{
 
@@ -32,23 +28,46 @@ class IndexTasks extends Component{
     this.props.deleteTask(id);
   }
 
-  // render all the tasks in a list
+  handleFinish(id){
+    this.props.updateTask(id);
+  }
+
+            // <Link to={`/tasks/${task._id}`}>
+            // </Link>
+
+  renderStatus(status){
+    if (status === true){
+      return <h4>Completion: Yes </h4>
+    }
+    return <h4>Completion: No </h4>
+  }
+
+  /** render all the tasks in a list */
   renderTasks(){
     return _.map(this.props.tasks, (task) => {
       return (
         <div className="task-item" key={task._id}>
           <div className="detail">
-            <Link to={`/tasks/${task._id}`}>
-              <div key={task._id}>
-                <h3>{task.title}</h3>
-                <h4>Completion: {task.complete.toString()}</h4>
-              </div>
-            </Link>
+            <div key={task._id}>
+              <h3>{task.title}</h3>
+              {this.renderStatus(task.complete)}
+            </div>
           </div>
           <div className="option">
             <button 
-              onClick={(event) =>this.handleDelete(task._id)} 
-              className="btn btn-danger btn-lg">Delete</button>
+              onClick={
+                (event) => this.handleFinish(task._id)
+              } 
+              className="btn btn-success btn-lg">
+              Finish
+            </button>
+            <button 
+              onClick={
+                (event) => this.handleDelete(task._id)
+              } 
+              className="btn btn-danger btn-lg">
+              Delete
+            </button>
           </div>
         </div>
       )
@@ -82,4 +101,7 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps,{fetchAllTasks,deleteTask})(IndexTasks);
+export default connect(
+    mapStateToProps,
+    {fetchAllTasks,deleteTask,updateTask}
+  )(IndexTasks);
