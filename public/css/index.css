@@ -31,6 +31,9 @@ body {
   height: 50%;
   width: 70%; }
 
+.white-text {
+  color: white; }
+
 .btn {
   margin-right: 10px;
   z-index: 10; }
@@ -66,7 +69,6 @@ body {
 .task-item {
   border-radius: 20px;
   float: left;
-  z-index: 10;
   height: 120px;
   width: 31%;
   margin: 10px 10px 10px 10px;

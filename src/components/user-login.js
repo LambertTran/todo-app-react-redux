@@ -1,8 +1,6 @@
-/*===========================================================
-
-                          Packages
-
-/*===========================================================*/
+/*==========================================
+                    Package
+/*==========================================*/
 
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
@@ -13,11 +11,11 @@ import {userLogin} from '../actions';
 import FieldForm from './field-form';
 
 
-/*===========================================================
 
-                          Body
+/*==========================================
+                    Body
+/*==========================================*/
 
-/*===========================================================*/
 class UserLogin extends Component{
 
   /** Handle button submitting */
@@ -31,7 +29,7 @@ class UserLogin extends Component{
   renderField(field){
     return(
       <div className="form-group has-danger">
-        <label htmlFor="title">{field.label}</label>
+        <h3 className="white-text">{field.label}</h3>
         <input 
           type="text" 
           className="form-control"

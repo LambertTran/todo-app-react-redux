@@ -19,7 +19,6 @@ $task-item-bg:#CB4335;
 
 @mixin small-item{
   float:left;
-  z-index:10;
   height:120px;
   width:31%;
   margin: 10px 10px 10px 10px;
@@ -52,6 +51,10 @@ body{
   @include centerProps;
   height: 50%;
   width: 70%;
+}
+
+.white-text{
+  color:white;
 }
 
 .btn{

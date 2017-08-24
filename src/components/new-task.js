@@ -1,8 +1,6 @@
-/*===========================================================
-
-                          Packages
-
-/*===========================================================*/
+/*==========================================
+                    Package
+/*==========================================*/
 
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
@@ -14,11 +12,9 @@ import {createTask} from '../actions';
 
 
 
-/*===========================================================
-
-                          Body
-
-/*===========================================================*/
+/*==========================================
+                    Body
+/*==========================================*/
 
 class NewTask extends Component{
 
@@ -29,28 +25,17 @@ class NewTask extends Component{
   }
 
 
-  renderField(field){
-    return(
-        <div className="form-group has-danger">
-          <label htmlFor="title">{field.label}</label>
-          <input 
-            type="text" 
-            className="form-control"
-            {...field.input}/>
-      </div>
-    )
-  }
-
-
   render() {
     const {handleSubmit} = this.props;
     return (
       <div className="main-box">
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field label="Title" name="title" component={this.renderField}/>
-          <button type="submit" className="btn btn-primary btn-lg">Add</button>
-          <Link to="/tasks" className="btn btn-danger btn-lg">Cancel</Link>
-        </form>
+        <div className="inside-box">
+          <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <Field label="Title" name="title" component={this.renderField}/>
+            <button type="submit" className="btn btn-primary btn-lg">Add</button>
+            <Link to="/tasks" className="btn btn-danger btn-lg">Cancel</Link>
+          </form>
+        </div>
       </div>
     );
   }

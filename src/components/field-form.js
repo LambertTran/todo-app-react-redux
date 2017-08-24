@@ -1,6 +1,15 @@
+/*==========================================
+                    Package
+/*==========================================*/
+
 import React, {Component} from 'react';
 import {Field} from 'redux-form';
 
+
+
+/*==========================================
+                    Body
+/*==========================================*/
 
 class FieldForm extends Component{
 
@@ -8,7 +17,7 @@ class FieldForm extends Component{
   renderField(field){
     return(
       <div className="form-group has-danger">
-        <label htmlFor="title">{field.label}</label>
+        <h3 className="white-text">{field.label}</h3>
         <input 
           type={field.type}
           className="form-control"
