@@ -4,11 +4,12 @@
 
 import React,{Component} from 'react';
 import {connect} from 'react-redux'
-import {Field,reduxForm} from 'redux-form';
+import {reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
 
 /** Function handles creating new task from action */
 import {createTask} from '../actions';
+import FieldForm from './field-form';
 
 
 
@@ -31,7 +32,7 @@ class NewTask extends Component{
       <div className="main-box">
         <div className="inside-box">
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <Field label="Title" name="title" component={this.renderField}/>
+            <FieldForm name="title" type="text"/>
             <button type="submit" className="btn btn-primary btn-lg">Add</button>
             <Link to="/tasks" className="btn btn-danger btn-lg">Cancel</Link>
           </form>
