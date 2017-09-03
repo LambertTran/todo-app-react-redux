@@ -68,13 +68,14 @@ export function updateTask(id){
 
 /*===========================================================*/
 
-export function newUser(value,callback){
-  const req = axios.post(`${ROOT_URL}/users`,value)
+export function newUser(value,callback, handleErr){
+  var req = axios.post(`${ROOT_URL}/users`,value)
     .then((res) => {
       //set global header = response header returning from server
       axios.defaults.headers.common['x-auth'] = res.headers['x-auth'];
       callback();
-    })
+    }, (err) => handleErr())
+
   return{
     type:"NEW_USER",
     payload:req
@@ -82,13 +83,13 @@ export function newUser(value,callback){
 }
 
 
-export function userLogin(value,callback){
+export function userLogin(value,callback,handleErr){
   const req = axios.post(`${ROOT_URL}/users/login`,value)
     .then((res) => {
       //set global header = response header returning from server
       axios.defaults.headers.common['x-auth'] = res.headers['x-auth'];
       callback()
-    });
+    }, (err) => handleErr());
   return{
     type:"NEW_USER",
     payload:req

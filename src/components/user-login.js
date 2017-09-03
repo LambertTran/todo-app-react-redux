@@ -18,11 +18,25 @@ import FieldForm from './field-form';
 
 class UserLogin extends Component{
 
-  /** Handle button submitting */
+    constructor(props) {
+    super(props);
+    this.state = {validation:false}
+  }
+
+  /** Create new user when submitted new form */
   onSubmit(value){
     this.props.userLogin(value, () =>{
-      this.props.history.push('/tasks');  // go back to tasks page
-    });
+      this.props.history.push('/tasks');  // go tasks page
+    }, () => this.setState({validation:true}));
+  }
+  
+  handleError(){
+    if(this.state.validation === false){
+      return <div></div>
+    }
+    return (
+      <div>Wrong email or password</div>
+    )
   }
 
   /** Render components for particular field */
@@ -44,6 +58,7 @@ class UserLogin extends Component{
     return (
       <div className="main-box">
         <h1>Log in</h1>
+        <h2>{this.handleError()}</h2>
         <div className="inside-box" >
           <form 
             className="form-horizontal" 

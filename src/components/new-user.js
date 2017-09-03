@@ -18,19 +18,33 @@ import FieldForm from './field-form';
 
 class NewUser extends Component{
 
+  constructor(props) {
+    super(props);
+    this.state = {validation:false}
+  }
+
   /** Create new user when submitted new form */
   onSubmit(value){
     this.props.newUser(value, () =>{
       this.props.history.push('/tasks');  // go tasks page
-    });
+    }, () => this.setState({validation:true}));
   }
-
+  
+  handleError(){
+    if(this.state.validation === false){
+      return <div></div>
+    }
+    return (
+      <div>Email is already taken </div>
+    )
+  }
 
   render() {
     const {handleSubmit} = this.props;
     return (
       <div className="main-box">
         <h1>New User</h1>
+        <h3>{this.handleError('no')}</h3>
         <div className="inside-box" >
           <form 
             className="form-horizontal" 
