@@ -15,15 +15,17 @@ class WelCome extends Component{
   render() {
     return (
       <div>
-        <div className="main-box">
+        <div className="welcome-box">
           <h1>Welcome to TodoApp</h1>
-          <div className="btnProps">
-            <Link to='/users/login' 
-              className="btn btn-primary btn-lg">Login</Link>
-          </div>
-          <div className="btnProps">
-            <Link to='/users/new' 
-              className="btn btn-primary btn-lg">Create New Account</Link>
+          <div className="">
+            <div className="btnProps">
+              <Link to='/users/login' 
+                className="btn btn-primary btn-lg">Login</Link>
+            </div>
+            <div className="btnProps">
+              <Link to='/users/new' 
+                className="btn btn-primary btn-lg">Create New Account</Link>
+            </div>
           </div>
         </div>
       </div>

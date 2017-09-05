@@ -35,7 +35,7 @@ class UserLogin extends Component{
       return <div></div>
     }
     return (
-      <div>Wrong email or password</div>
+      <div className="error-message">Wrong email or password</div>
     )
   }
 

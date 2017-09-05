@@ -35,7 +35,7 @@ class NewUser extends Component{
       return <div></div>
     }
     return (
-      <div>Email is already taken </div>
+      <div className="error-message" >Email is already taken </div>
     )
   }
 

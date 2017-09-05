@@ -1,6 +1,24 @@
 body {
   background-color: #4fb7a3; }
 
+.welcome-box {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #195f8d;
+  color: white;
+  height: 40%;
+  width: 30%; }
+  @media (max-width: 450px) {
+    .welcome-box {
+      height: 40%;
+      width: 100%; } }
+
 .main-box {
   margin: auto;
   position: absolute;
@@ -14,12 +32,16 @@ body {
   text-align: center;
   background-color: #195f8d; }
   .main-box h1 {
-    margin-top: 50px;
+    margin-top: 20px;
     color: white;
-    margin-bottom: 50px; }
+    margin-bottom: 20px; }
+
+.error-message {
+  color: red; }
 
 .btnProps {
-  margin-bottom: 50px; }
+  margin-bottom: 20px;
+  margin-top: 20px; }
 
 .inside-box {
   margin: auto;

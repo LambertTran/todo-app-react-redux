@@ -1,6 +1,6 @@
 $main-bg: #73C6B6 ;
 $login-box-bg: #5DADE2;
-$margin-div: 50px;
+$margin-div: 20px;
 $tasks-bg:  #008080; 
 $task-item-bg:#CB4335; 
 
@@ -29,6 +29,21 @@ body{
   background-color: darken($main-bg,10%);
 }
 
+.welcome-box{
+  @include centerProps;
+  @include boxProps;
+  text-align:center;
+  background-color: darken($login-box-bg, 30%);
+  color:white;
+  height:40%;
+  width:30%;
+
+  @media (max-width:450px){
+    height:40%;
+    width:100%;
+  }  
+
+}
 .main-box{
   @include centerProps;
   @include boxProps;
@@ -43,8 +58,13 @@ body{
   }
 }
 
+.error-message{
+  color:red;
+}
+
 .btnProps{
   margin-bottom: $margin-div;
+  margin-top: $margin-div;
 }
 
 .inside-box{
