@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
 
+//home page
+import Home from './components/home.js';
+
 //tasks
 import IndexTasks from './components/index-tasks';
 import ShowTask from './components/show-task';
 import NewTask from './components/new-task';
 
-
 //user
+import WelCome from './components/welcome';
 import NewUser from './components/new-user';
 import UserLogin from './components/user-login';
-import WelCome from './components/welcome';
 
 
 // create store

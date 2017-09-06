@@ -30,6 +30,7 @@ class NewTask extends Component{
     const {handleSubmit} = this.props;
     return (
       <div className="main-box">
+        <h1>Create New Task</h1>
         <div className="inside-box">
           <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
             <FieldForm name="title" type="text"/>
