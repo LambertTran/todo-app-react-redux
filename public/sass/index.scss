@@ -1,7 +1,8 @@
-$main-bg: #73C6B6 ;
-$login-box-bg: #5DADE2;
+$main-bg: #F6F6F6 ;
+// $login-box-bg: #5DADE2;
+$login-box-bg: #67BCDB;
 $margin-div: 20px;
-$tasks-bg:  #008080; 
+$tasks-bg:  #118C4E; 
 $task-item-bg:#CB4335; 
 
 @mixin boxProps {
@@ -24,16 +25,30 @@ $task-item-bg:#CB4335;
   margin: 10px 10px 10px 10px;
 }
 
+.home{
+  margin-top:50px;
+  text-align:center;
+  img{
+    margin: 0 auto;
+    margin-top:20px;
+    bottom:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  @media (max-width:1024px){
+    margin-top:45%;
+  }
+}
 
 body{
-  background-color: darken($main-bg,10%);
+  background-color: $main-bg;
 }
 
 .welcome-box{
   @include centerProps;
   @include boxProps;
   text-align:center;
-  background-color: darken($login-box-bg, 30%);
+  background-color: $login-box-bg;
   color:white;
   height:40%;
   width:30%;
@@ -50,7 +65,8 @@ body{
   height: 60%;
   width: 30%;
   text-align: center;
-  background-color: darken($login-box-bg, 30%);
+  background-color: $login-box-bg;
+
   h1{
     margin-top: $margin-div;
     color:white;

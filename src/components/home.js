@@ -1,23 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import welcome from '../images/welcome.png';
+import homepic from '../images/homepic.png';
 
 class Home extends Component{
   render(){
     return (
       <div className="home">
         <h1>Welcome to Todo app</h1>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3">
-              <h3>Productivity</h3>
-              <h3>Efficiency</h3>
-            </div>
-            <div className="col-md-9">
-              <img src={welcome} className="img-responsive" alt="Responsive image"/>
-            </div>
-          </div>
-        </div>
+        <h2>Get life under control</h2>
+        <Link to="/users" className="btn btn-primary btn-lg"> Get Start </Link>
+        <img src={homepic} className="img-responsive" alt="Responsive image"/>
       </div>
     )
   }

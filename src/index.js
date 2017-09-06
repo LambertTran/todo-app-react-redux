@@ -34,7 +34,8 @@ ReactDOM.render(
           <Route path="/tasks" component={IndexTasks} />
           <Route path="/users/new" component={NewUser} />
           <Route path="/users/login" component={UserLogin} />
-          <Route path="/" component={WelCome} />
+          <Route path="/users" component={WelCome} />
+          <Route path="/" component={Home} />
         </Switch>
       </div>
     </BrowserRouter>
