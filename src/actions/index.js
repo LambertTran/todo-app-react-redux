@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 /** api server for todo-app */
-const ROOT_URL = "http://ec2-52-52-42-92.us-west-1.compute.amazonaws.com:8080/api/";
-// const ROOT_URL = "local://host"
+const ROOT_URL = "http://ec2-52-52-42-92.us-west-1.compute.amazonaws.com:8080/api/todo-app";
+// const ROOT_URL = "http://localhost:8080/api/todo-app"
 
 
 /*===========================================================
